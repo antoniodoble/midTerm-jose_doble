@@ -7,13 +7,20 @@ export function setupLoginForm(onSuccess) {
   const usernameError = document.querySelector("#username-error");
   const submitBtn = document.querySelector("#start-btn");
 
-  let selectedPokemon = null; // Se actualizará al seleccionar del buscador
+  let selectedPokemon = null;
+
+  // Habilitar o deshabilitar botón de envío
+  function checkFormState() {
+    const isUserValid = validateUsername(usernameInput.value).isValid;
+    const hasPokemon = selectedPokemon !== null;
+    submitBtn.disabled = !(isUserValid && hasPokemon);
+  }
 
   // Validación en tiempo real del username
   usernameInput.addEventListener("input", () => {
     const validation = validateUsername(usernameInput.value);
 
-    if (!validation.isValid) {
+    if (!validation.isValid && usernameInput.value.trim().length > 0) {
       usernameError.textContent = validation.message;
       usernameError.classList.add("visible");
     } else {
@@ -23,20 +30,6 @@ export function setupLoginForm(onSuccess) {
 
     checkFormState();
   });
-
-  // Habilitar o deshabilitar botón de envío
-  function checkFormState() {
-    const isUserValid = validateUsername(usernameInput.value).isValid;
-    const hasPokemon = selectedPokemon !== null;
-
-    submitBtn.disabled = !(isUserValid && hasPokemon);
-  }
-
-  // Función para que el módulo del buscador asigne el Pokémon seleccionado
-  window.setSelectedPokemonForProfile = (pokemon) => {
-    selectedPokemon = pokemon;
-    checkFormState();
-  };
 
   // Manejo del Submit
   form.addEventListener("submit", (e) => {
@@ -61,4 +54,12 @@ export function setupLoginForm(onSuccess) {
     saveSession(userProfile);
     onSuccess(userProfile);
   });
+
+  // Retornamos el método para desacoplarlo de window y conectarlo con main.js
+  return {
+    setSelectedPokemon: (pokemon) => {
+      selectedPokemon = pokemon;
+      checkFormState();
+    },
+  };
 }
