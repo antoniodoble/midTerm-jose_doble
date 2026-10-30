@@ -20,6 +20,7 @@
 
   --font-title: "Press Start 2P", monospace;
   --font-body: "Nunito", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono: "VT323", "Courier New", monospace;
 
   font-family: var(--font-body);
   color: var(--text-main);
@@ -72,9 +73,10 @@ body {
 }
 
 .landing-subtitle {
-  color: var(--text-muted);
-  font-weight: 600;
-  max-width: 32ch;
+  font-family: var(--font-title);
+  font-size: 0.8rem;
+  line-height: 1.8;
+  color: var(--primary-blue);
 }
 
 .landing-sprite-wrapper {
@@ -491,7 +493,9 @@ button:disabled {
 }
 
 .status-msg.success {
+  font-family: var(--font-title);
+  font-size: 0.75rem;
+  line-height: 1.8;
   color: var(--success-color);
-  font-weight: bold;
-  margin-top: 10px;
+  margin-top: 12px;
 }
