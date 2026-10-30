@@ -106,8 +106,8 @@ body {
 .cta-btn {
   background-color: var(--primary-yellow);
   color: var(--primary-blue);
-  font-size: 1.1rem;
-  padding: 14px 32px;
+  font-size: 0.85rem;
+  padding: 16px 28px;
   text-transform: uppercase;
   letter-spacing: 0.05em;
 }
@@ -199,9 +199,10 @@ input.input-error {
 button {
   background-color: var(--primary-red);
   color: #ffffff;
-  font-family: var(--font-body);
+  font-family: var(--font-title);
   font-weight: 800;
-  font-size: 1rem;
+  font-size: 0.7rem;
+  line-height: 1.4;
   padding: 10px 20px;
   border: 2px solid var(--dark);
   border-bottom-width: 5px;
