@@ -24,7 +24,7 @@ function renderLandingView() {
   app.innerHTML = `
     <main class="landing">
       <h1>PokeMemory</h1>
-      <p class="landing-subtitle">Encuentra todas las parejas y sube en el ranking</p>
+      <p class="landing-subtitle">¡Hazte con todos!</p>
       <div class="landing-sprite-wrapper">
         <img id="landing-sprite" class="landing-sprite" alt="" hidden />
       </div>
@@ -143,7 +143,7 @@ function renderGameView(userProfile) {
       timerElement: document.querySelector("#game-timer"),
       boardElement: document.querySelector("#board-container"),
       onGameEnd: (newResultId, finalTime) => {
-        statusMsg.textContent = `¡Felicidades! Completaste la partida en ${Math.floor(finalTime / 60)}m ${finalTime % 60}s.`;
+        statusMsg.textContent = `¡Misión cumplida! Tiempo: ${Math.floor(finalTime / 60)}m ${finalTime % 60}s`;
         statusMsg.classList.add("success");
 
         // Actualizar ranking resaltando la partida finalizada

@@ -20,6 +20,7 @@
 
   --font-title: "Press Start 2P", monospace;
   --font-body: "Nunito", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono: "VT323", "Courier New", monospace;
 
   font-family: var(--font-body);
   color: var(--text-main);
@@ -72,9 +73,10 @@ body {
 }
 
 .landing-subtitle {
-  color: var(--text-muted);
-  font-weight: 600;
-  max-width: 32ch;
+  font-family: var(--font-title);
+  font-size: 0.8rem;
+  line-height: 1.8;
+  color: var(--primary-blue);
 }
 
 .landing-sprite-wrapper {
@@ -104,8 +106,8 @@ body {
 .cta-btn {
   background-color: var(--primary-yellow);
   color: var(--primary-blue);
-  font-size: 1.1rem;
-  padding: 14px 32px;
+  font-size: 0.85rem;
+  padding: 16px 28px;
   text-transform: uppercase;
   letter-spacing: 0.05em;
 }
@@ -197,9 +199,10 @@ input.input-error {
 button {
   background-color: var(--primary-red);
   color: #ffffff;
-  font-family: var(--font-body);
+  font-family: var(--font-title);
   font-weight: 800;
-  font-size: 1rem;
+  font-size: 0.7rem;
+  line-height: 1.4;
   padding: 10px 20px;
   border: 2px solid var(--dark);
   border-bottom-width: 5px;
@@ -305,9 +308,10 @@ button:disabled {
 }
 
 .timer-container {
-  font-size: 1.1rem;
+  font-family: var(--font-mono);
+  font-size: 1.5rem;
   background: #f1f5f9;
-  padding: 8px 14px;
+  padding: 4px 14px;
   border-radius: 6px;
 }
 
@@ -454,7 +458,8 @@ button:disabled {
   width: 100%;
   border-collapse: collapse;
   text-align: left;
-  font-size: 0.95rem;
+  font-family: var(--font-mono);
+  font-size: 1.3rem;
 }
 
 .ranking-table th,
@@ -466,7 +471,9 @@ button:disabled {
 .ranking-table th {
   background-color: var(--dark);
   color: #ffffff;
-  font-weight: 800;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
 }
 
 .pokemon-cell {
@@ -491,7 +498,9 @@ button:disabled {
 }
 
 .status-msg.success {
+  font-family: var(--font-title);
+  font-size: 0.75rem;
+  line-height: 1.8;
   color: var(--success-color);
-  font-weight: bold;
-  margin-top: 10px;
+  margin-top: 12px;
 }
