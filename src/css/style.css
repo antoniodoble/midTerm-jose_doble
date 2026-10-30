@@ -307,9 +307,10 @@ button:disabled {
 }
 
 .timer-container {
-  font-size: 1.1rem;
+  font-family: var(--font-mono);
+  font-size: 1.5rem;
   background: #f1f5f9;
-  padding: 8px 14px;
+  padding: 4px 14px;
   border-radius: 6px;
 }
 
@@ -456,7 +457,8 @@ button:disabled {
   width: 100%;
   border-collapse: collapse;
   text-align: left;
-  font-size: 0.95rem;
+  font-family: var(--font-mono);
+  font-size: 1.3rem;
 }
 
 .ranking-table th,
@@ -468,7 +470,9 @@ button:disabled {
 .ranking-table th {
   background-color: var(--dark);
   color: #ffffff;
-  font-weight: 800;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
 }
 
 .pokemon-cell {
