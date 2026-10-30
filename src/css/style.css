@@ -336,6 +336,7 @@ button:disabled {
   aspect-ratio: 3/4;
   perspective: 1000px;
   cursor: pointer;
+  transition: transform 0.2s;
 }
 
 .card-inner {
@@ -345,6 +346,20 @@ button:disabled {
   text-align: center;
   transition: transform 0.5s;
   transform-style: preserve-3d;
+}
+
+.memory-card:not(.flipped):not(.matched):hover {
+  transform: translateY(-4px);
+}
+
+.memory-card.matched {
+  cursor: default;
+}
+
+/* Carta descubierta (pendiente de comprobar) */
+.memory-card.flipped .card-back {
+  border-color: var(--primary-yellow);
+  box-shadow: 0 0 10px rgba(255, 203, 5, 0.7);
 }
 
 .memory-card.flipped .card-inner,
