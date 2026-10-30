@@ -6,6 +6,7 @@ import { setupGameControls } from "./ui/gameControlsUI.js";
 import { createMemoryGame } from "./game/memoryGame.js";
 import { renderRanking } from "./ui/rankingUI.js";
 import { stopTimer } from "./game/timer.js";
+import { setupLandingSprite } from "./ui/landingUI.js";
 
 const app = document.querySelector("#app");
 
@@ -15,8 +16,27 @@ function initApp() {
   if (session) {
     renderGameView(session);
   } else {
-    renderLoginView();
+    renderLandingView();
   }
+}
+
+function renderLandingView() {
+  app.innerHTML = `
+    <main class="landing">
+      <h1>PokeMemory</h1>
+      <p class="landing-subtitle">Encuentra todas las parejas y sube en el ranking</p>
+      <div class="landing-sprite-wrapper">
+        <img id="landing-sprite" class="landing-sprite" alt="" hidden />
+      </div>
+      <button id="landing-start-btn" class="cta-btn">Crear perfil</button>
+    </main>
+  `;
+
+  document
+    .querySelector("#landing-start-btn")
+    .addEventListener("click", renderLoginView);
+
+  setupLandingSprite(document.querySelector("#landing-sprite"));
 }
 
 function renderLoginView() {
