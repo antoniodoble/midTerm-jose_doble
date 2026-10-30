@@ -1,5 +1,6 @@
 // src/ui/rankingUI.js
 import { getRanking } from "../storage.js";
+const MEDALS = ["🥇", "🥈", "🥉"];
 
 /**
  * Renderiza la tabla de ranking en el contenedor indicado.
@@ -92,7 +93,7 @@ function buildRowHTML(entry, position, isRecent) {
 
   return `
     <tr class="${recentClass}">
-      <td><strong>#${position}</strong></td>
+      <td><strong>${MEDALS[position - 1] ?? `#${position}`}</strong></td>
       <td>${escapeHTML(entry.username)}</td>
       <td class="pokemon-cell">
         <img src="${entry.favoritePokemon.image}" alt="${entry.favoritePokemon.name}" width="28" height="28" />

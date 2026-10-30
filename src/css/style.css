@@ -279,6 +279,7 @@ button:disabled {
     font-size: 1.5rem;
   }
 }
+
 /* --- CABECERA Y ESTRUCTURA DEL JUEGO --- */
 .game-header {
   display: flex;
@@ -297,6 +298,7 @@ button:disabled {
 
 .game-actions {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   gap: 16px;
   margin-top: 10px;
@@ -336,6 +338,7 @@ button:disabled {
   aspect-ratio: 3/4;
   perspective: 1000px;
   cursor: pointer;
+  transition: transform 0.2s;
 }
 
 .card-inner {
@@ -345,6 +348,20 @@ button:disabled {
   text-align: center;
   transition: transform 0.5s;
   transform-style: preserve-3d;
+}
+
+.memory-card:not(.flipped):not(.matched):hover {
+  transform: translateY(-4px);
+}
+
+.memory-card.matched {
+  cursor: default;
+}
+
+/* Carta descubierta (pendiente de comprobar) */
+.memory-card.flipped .card-back {
+  border-color: var(--primary-yellow);
+  box-shadow: 0 0 10px rgba(255, 203, 5, 0.7);
 }
 
 .memory-card.flipped .card-inner,
@@ -368,10 +385,20 @@ button:disabled {
 }
 
 .card-front {
-  background-color: var(--primary-red);
-  color: white;
-  font-size: 2rem;
-  font-weight: bold;
+  background:
+    radial-gradient(
+      circle at 50% 50%,
+      #fff 0 8%,
+      var(--dark) 8% 15%,
+      transparent 15%
+    ),
+    linear-gradient(
+      180deg,
+      var(--primary-red) 0 46%,
+      var(--dark) 46% 54%,
+      #ffffff 54%
+    );
+  border-color: var(--dark);
 }
 
 .card-back {
@@ -398,6 +425,10 @@ button:disabled {
   .cards-grid {
     grid-template-columns: repeat(auto-fit, minmax(70px, 1fr));
     gap: 8px;
+  }
+
+  .card-back span {
+    font-size: 0.65rem;
   }
 }
 
@@ -433,9 +464,9 @@ button:disabled {
 }
 
 .ranking-table th {
-  background-color: #f8fafc;
-  color: var(--text-muted);
-  font-weight: 600;
+  background-color: var(--dark);
+  color: #ffffff;
+  font-weight: 800;
 }
 
 .pokemon-cell {
