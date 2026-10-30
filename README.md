@@ -2,8 +2,8 @@
 
 - **Alumno:** José Antonio Doble Rodríguez
 - **Repositorio de GitHub:** [https://github.com/antoniodoble/midTerm-jose_doble](https://github.com/antoniodoble/midTerm-jose_doble)
-- **Despliegue de la aplicación:**
-- **Vídeo de demostración:**
+- **Despliegue de la aplicación:** [https://antoniodoble.github.io/midTerm-jose_doble/] (https://antoniodoble.github.io/midTerm-jose_doble/)
+- **Vídeo de demostración:** [Ver vídeo en YouTube](https://youtu.be/RofXZf10BEg)
 
 ---
 
