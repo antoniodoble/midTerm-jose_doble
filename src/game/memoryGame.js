@@ -82,7 +82,8 @@ function renderBoard() {
 
     cardEl.innerHTML = `
       <div class="card-inner">
-        <div class="card-front">?</div>
+        <div class="card-front">
+        </div>
         <div class="card-back">
           <img src="${card.image}" alt="${card.name}" draggable="false" />
           <span>${card.name}</span>

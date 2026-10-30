@@ -368,10 +368,20 @@ button:disabled {
 }
 
 .card-front {
-  background-color: var(--primary-red);
-  color: white;
-  font-size: 2rem;
-  font-weight: bold;
+  background:
+    radial-gradient(
+      circle at 50% 50%,
+      #fff 0 8%,
+      var(--dark) 8% 15%,
+      transparent 15%
+    ),
+    linear-gradient(
+      180deg,
+      var(--primary-red) 0 46%,
+      var(--dark) 46% 54%,
+      #ffffff 54%
+    );
+  border-color: var(--dark);
 }
 
 .card-back {
