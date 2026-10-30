@@ -23,6 +23,8 @@ export function renderRanking(container, lastResultId = null) {
   const MAX_VISIBLE = 5;
   const isLongRanking = ranking.length > MAX_VISIBLE;
 
+  const MEDALS = ["🥇", "🥈", "🥉"];
+
   let visibleEntries = ranking.slice(0, MAX_VISIBLE);
   let lastResultOmitted = false;
   let lastResultData = null;
@@ -92,7 +94,7 @@ function buildRowHTML(entry, position, isRecent) {
 
   return `
     <tr class="${recentClass}">
-      <td><strong>#${position}</strong></td>
+      <td><strong>${MEDALS[position - 1] ?? `#${position}`}</strong></td>
       <td>${escapeHTML(entry.username)}</td>
       <td class="pokemon-cell">
         <img src="${entry.favoritePokemon.image}" alt="${entry.favoritePokemon.name}" width="28" height="28" />

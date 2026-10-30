@@ -444,11 +444,10 @@ button:disabled {
   overflow-x: auto;
 }
 
-.ranking-table {
-  width: 100%;
-  border-collapse: collapse;
-  text-align: left;
-  font-size: 0.95rem;
+.ranking-table th {
+  background-color: var(--dark);
+  color: #ffffff;
+  font-weight: 800;
 }
 
 .ranking-table th,
