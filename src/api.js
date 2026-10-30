@@ -2,6 +2,8 @@
 
 const BASE_URL = "https://pokeapi.co/api/v2";
 
+const MAX_ANIMATED_POKEMON_ID = 649;
+
 let allPokemonList = [];
 
 /**
@@ -62,4 +64,24 @@ export async function getRandomPokemonPairs(numPairs) {
 
   const pokemons = await Promise.all(pokemonPromises);
   return pokemons.filter((p) => p !== null);
+}
+
+/**
+ * Obtiene un Pokémon aleatorio con su sprite animado (GIF).
+ * Los sprites animados de PokeAPI solo existen hasta la generación V (id 649).
+ */
+export async function fetchRandomAnimatedSprite() {
+  const id = Math.floor(Math.random() * MAX_ANIMATED_POKEMON_ID) + 1;
+  try {
+    const response = await fetch(`${BASE_URL}/pokemon/${id}`);
+    if (!response.ok) throw new Error("Pokémon no encontrado");
+    const data = await response.json();
+    const animated =
+      data.sprites.versions?.["generation-v"]?.["black-white"]?.animated
+        ?.front_default;
+    return { name: data.name, image: animated || data.sprites.front_default };
+  } catch (error) {
+    console.error("Error fetching animated sprite:", error);
+    return null;
+  }
 }
