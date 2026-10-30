@@ -245,7 +245,7 @@ button:disabled {
 
 .cards-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  grid-template-columns: repeat(var(--columns, 4), minmax(0, 1fr));
   gap: 12px;
   width: 100%;
 }
@@ -309,6 +309,14 @@ button:disabled {
   text-transform: capitalize;
   margin-top: 4px;
   font-weight: 600;
+}
+
+/* En pantallas estrechas, 2 filas no caben: dejamos que el grid se adapte */
+@media (max-width: 768px) {
+  .cards-grid {
+    grid-template-columns: repeat(auto-fit, minmax(70px, 1fr));
+    gap: 8px;
+  }
 }
 
 /* Estado de pareja encontrada */

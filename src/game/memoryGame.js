@@ -2,6 +2,8 @@ import { getRandomPokemonPairs } from "../api.js";
 import { startTimer, stopTimer } from "./timer.js";
 import { saveGameResult } from "../storage.js";
 
+const BOARD_ROWS = 2;
+
 let state = {
   userProfile: null,
   totalCards: 0,
@@ -70,6 +72,7 @@ function renderBoard() {
   state.boardElement.innerHTML = "";
   const grid = document.createElement("div");
   grid.className = "cards-grid";
+  grid.style.setProperty("--columns", state.totalCards / BOARD_ROWS);
 
   state.cardsData.forEach((card) => {
     const cardEl = document.createElement("div");
