@@ -279,6 +279,7 @@ button:disabled {
     font-size: 1.5rem;
   }
 }
+
 /* --- CABECERA Y ESTRUCTURA DEL JUEGO --- */
 .game-header {
   display: flex;
@@ -297,6 +298,7 @@ button:disabled {
 
 .game-actions {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   gap: 16px;
   margin-top: 10px;
@@ -424,6 +426,10 @@ button:disabled {
     grid-template-columns: repeat(auto-fit, minmax(70px, 1fr));
     gap: 8px;
   }
+
+  .card-back span {
+    font-size: 0.65rem;
+  }
 }
 
 /* Estado de pareja encontrada */
@@ -444,10 +450,11 @@ button:disabled {
   overflow-x: auto;
 }
 
-.ranking-table th {
-  background-color: var(--dark);
-  color: #ffffff;
-  font-weight: 800;
+.ranking-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  font-size: 0.95rem;
 }
 
 .ranking-table th,
@@ -457,9 +464,9 @@ button:disabled {
 }
 
 .ranking-table th {
-  background-color: #f8fafc;
-  color: var(--text-muted);
-  font-weight: 600;
+  background-color: var(--dark);
+  color: #ffffff;
+  font-weight: 800;
 }
 
 .pokemon-cell {
