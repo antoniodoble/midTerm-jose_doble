@@ -1,5 +1,6 @@
 // src/ui/rankingUI.js
 import { getRanking } from "../storage.js";
+const MEDALS = ["🥇", "🥈", "🥉"];
 
 /**
  * Renderiza la tabla de ranking en el contenedor indicado.
@@ -22,8 +23,6 @@ export function renderRanking(container, lastResultId = null) {
   // Si hay más de 5, tomamos los 5 primeros
   const MAX_VISIBLE = 5;
   const isLongRanking = ranking.length > MAX_VISIBLE;
-
-  const MEDALS = ["🥇", "🥈", "🥉"];
 
   let visibleEntries = ranking.slice(0, MAX_VISIBLE);
   let lastResultOmitted = false;
